@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CPF</string>
+    <string name="digit_hint">0</string>
+    <string name="digit_hint2">X</string>
+</resources>
