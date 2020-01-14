@@ -6,11 +6,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 public class GeradorActivity extends AppCompatActivity {
 
@@ -29,6 +33,17 @@ public class GeradorActivity extends AppCompatActivity {
     private TextView digito11;
 
     private ImageButton clear;
+
+    int myNumber;
+    int dig2;
+    int dig3;
+    int dig4;
+    int dig5;
+    int dig6;
+    int dig7;
+    int dig8;
+    int dig9;
+
 
 
     @Override
@@ -65,6 +80,43 @@ public class GeradorActivity extends AppCompatActivity {
         digito7.addTextChangedListener(new DigitTextWatch(digito7));
         digito8.addTextChangedListener(new DigitTextWatch(digito8));
         digito9.addTextChangedListener(new DigitTextWatch(digito9));
+        digito1.requestFocus();
+
+    }
+
+    public void random() {
+
+        Random rand = new Random();
+        myNumber = rand.nextInt(9) +1;
+        dig2 = rand.nextInt(9) +1;
+        dig3 = rand.nextInt(9) +1;
+        dig4 = rand.nextInt(9) +1;
+        dig5 = rand.nextInt(9) +1;
+        dig6 = rand.nextInt(9) +1;
+        dig7 = rand.nextInt(9) +1;
+        dig8 = rand.nextInt(9) +1;
+        dig9 = rand.nextInt(9) +1;
+
+    }
+
+    public void gera(View v) {
+
+        random();
+        digito1.setText(Integer.toString(myNumber));
+        digito2.setText(Integer.toString(dig2));
+        digito3.setText(Integer.toString(dig3));
+        digito4.setText(Integer.toString(dig4));
+        digito5.setText(Integer.toString(dig5));
+        digito6.setText(Integer.toString(dig6));
+        digito7.setText(Integer.toString(dig7));
+        digito8.setText(Integer.toString(dig8));
+        digito9.setText(Integer.toString(dig9));
+        digito9.requestFocus();
+
+
+
+        Log.i("info", "button is pressed!");
+
 
     }
 
@@ -97,6 +149,9 @@ public class GeradorActivity extends AppCompatActivity {
         digito11.setText(String.valueOf(dig11));
     }
 
+
+
+
     private void verificadorCampos(EditText[] digitos) {
         for (EditText digito : digitos) {
             if (digito.getText().toString().length() <= 0) {
@@ -127,6 +182,7 @@ public class GeradorActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged (Editable s){
+
             String text = s.toString();
             switch (view.getId()) {
                 case R.id.dig1:
@@ -171,53 +227,30 @@ public class GeradorActivity extends AppCompatActivity {
                     break;
                 case R.id.dig9:
                     if (text.length() == 1) {
-                        closeKeyboard(getApplicationContext(), digito9);
+                        //closeKeyboard(getApplicationContext(), digito9);
+                        digito1.requestFocus();
                     }
+
                     break;
             }
-        }
-    }
-
-
-
-
-    private void closeKeyboard(Context context, View view) {
-        try {
-            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null) {
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            }
-        } catch (Exception ignored) {
 
         }
-
     }
 
-    public void eraser(View v) {
-        clear.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                digito1.setText("");
-                digito2.setText("");
-                digito3.setText("");
-                digito4.setText("");
-                digito5.setText("");
-                digito6.setText("");
-                digito7.setText("");
-                digito8.setText("");
-                digito9.setText("");
-                digito10.setText("");
-                digito11.setText("");
-                digito1.requestFocus();
-
-
-            }
-        });
-
-
+    public void onClick(View v) {
+        digito1.setText("");
+        digito2.setText("");
+        digito3.setText("");
+        digito4.setText("");
+        digito5.setText("");
+        digito6.setText("");
+        digito7.setText("");
+        digito8.setText("");
+        digito9.setText("");
+        digito10.setText("");
+        digito11.setText("");
+        digito1.requestFocus();
     }
-
 
 }
 

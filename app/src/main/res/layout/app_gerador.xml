@@ -7,14 +7,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_cpf_generator_image"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="178dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="70dp"
         android:background="@drawable/mao_cpf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +22,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_cpf_generator_inputs"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="158dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
@@ -211,19 +213,41 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ImageButton
-        android:id="@+id/btclear"
-        android:layout_width="wrap_content"
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="@android:color/black"
-        android:onClick="eraser"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/texto_9dig"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cl_cpf_generator_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnGera"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:onClick="gera"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_cpf_generator_image"
-        app:srcCompat="@android:drawable/ic_notification_clear_all"
+        app:srcCompat="@drawable/engrenagem"
+        tools:ignore="OnClick" />
+
+    <ImageButton
+        android:id="@+id/btclear"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_cpf_generator_image"
+        app:srcCompat="@drawable/vassoura"
         tools:ignore="OnClick" />
 
 
