@@ -7,14 +7,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gerador_validador2"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_cpf_generator_image"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="99dp"
         android:background="@drawable/mao_cpf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +24,8 @@
             android:id="@+id/cl_cpf_generator_inputs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="158dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="156dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
@@ -210,9 +210,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     <TextView
@@ -221,34 +220,59 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_9dig"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cl_cpf_generator_image"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btnGera"
-        android:layout_width="63dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="10dp"
-        android:onClick="gera"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_cpf_generator_image"
-        app:srcCompat="@drawable/engrenagem"
-        tools:ignore="OnClick" />
 
-    <ImageButton
-        android:id="@+id/btclear"
-        android:layout_width="63dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="3dp"
-        android:onClick="onClick"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_cpf_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_cpf_generator_image"
-        app:srcCompat="@drawable/vassoura"
-        tools:ignore="OnClick" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_cpf_generator_image">
+
+        <Button
+            android:id="@+id/btnGera"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="Gerar"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/btSalvar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btSalvar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="Salvar"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/btlimp"
+            app:layout_constraintStart_toEndOf="@+id/btnGera"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btlimp"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="Limpar"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btSalvar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="OnClick" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
